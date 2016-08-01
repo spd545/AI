@@ -6,6 +6,7 @@
 package ai;
 
 import static ai.AI_JFRAME.inp;
+import static ai.AI_JFRAME.cap;
 import static ai.AI_JFRAME.response;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,6 +29,7 @@ import javax.swing.JPanel;
  * @author spd54
  */
 public class AI_JFRAME extends JPanel{
+    public static boolean cap = false;
     public static String status = "Stable";
     public static String inp = "";
     public static String response = "Hello";
@@ -77,6 +79,11 @@ public class AI_JFRAME extends JPanel{
         g.drawString("AI: "+response, 0, 25);
         g.drawString("Input "+inp, 0, 50);
         g.drawString("(AI: Status "+status+")", 300, 25);
+        if(response.equalsIgnoreCase("does not compute")){
+            status = "Error";
+        }else{
+            status = "Stable";
+        }
 }
 }
 class Key implements KeyListener{
@@ -86,6 +93,10 @@ class Key implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent ke) {
+        if(ke.getKeyCode()==KeyEvent.VK_SHIFT){
+            cap = !cap;
+        }
+        if(cap){
         if(ke.getKeyCode() == KeyEvent.VK_A){
             inp += "A";
         }else if(ke.getKeyCode() == KeyEvent.VK_B){
@@ -159,10 +170,127 @@ class Key implements KeyListener{
         }else if(ke.getKeyCode() == KeyEvent.VK_9){
             inp += "9";
             System.out.println("9");
-        }else if (ke.getKeyCode() == KeyEvent.VK_ENTER){
-            System.out.println(inp.toLowerCase());
+        }
+        }else if(cap == false){
+        if(ke.getKeyCode() == KeyEvent.VK_A){
+            inp += "a";
+        }else if(ke.getKeyCode() == KeyEvent.VK_B){
+            inp += "b";
+        }else if(ke.getKeyCode() == KeyEvent.VK_C){
+            inp += "c";
+        }else if(ke.getKeyCode() == KeyEvent.VK_D){
+            inp += "d";
+        }else if(ke.getKeyCode() == KeyEvent.VK_E){
+            inp += "e";
+        }else if(ke.getKeyCode() == KeyEvent.VK_F){
+            inp += "f";
+        }else if(ke.getKeyCode() == KeyEvent.VK_G){
+            inp += "g";
+        }else if(ke.getKeyCode() == KeyEvent.VK_H){
+            inp += "h";
+        }else if(ke.getKeyCode() == KeyEvent.VK_I){
+            inp += "i";
+        }else if(ke.getKeyCode() == KeyEvent.VK_J){
+            inp += "j";
+        }else if(ke.getKeyCode() == KeyEvent.VK_K){
+            inp += "k";
+        }else if(ke.getKeyCode() == KeyEvent.VK_L){
+            inp += "l";
+        }else if(ke.getKeyCode() == KeyEvent.VK_M){
+            inp += "m";
+        }else if(ke.getKeyCode() == KeyEvent.VK_N){
+            inp += "n";
+        }else if(ke.getKeyCode() == KeyEvent.VK_O){
+            inp += "o";
+        }else if(ke.getKeyCode() == KeyEvent.VK_P){
+            inp += "p";
+        }else if(ke.getKeyCode() == KeyEvent.VK_Q){
+            inp += "q";
+        }else if(ke.getKeyCode() == KeyEvent.VK_R){
+            inp += "r";
+        }else if(ke.getKeyCode() == KeyEvent.VK_S){
+            inp += "s";
+        }else if(ke.getKeyCode() == KeyEvent.VK_T){
+            inp += "t";
+        }else if(ke.getKeyCode() == KeyEvent.VK_U){
+            inp += "u";
+        }else if(ke.getKeyCode() == KeyEvent.VK_V){
+            inp += "v";
+        }else if(ke.getKeyCode() == KeyEvent.VK_W){
+            inp += "w";
+        }else if(ke.getKeyCode() == KeyEvent.VK_X){
+            inp += "x";
+        }else if(ke.getKeyCode() == KeyEvent.VK_Y){
+            inp += "y";
+        }else if(ke.getKeyCode() == KeyEvent.VK_Z){
+            inp += "z";
+        }else if(ke.getKeyCode() == KeyEvent.VK_0){
+            inp += "0";
+        }else if(ke.getKeyCode() == KeyEvent.VK_1){
+            inp += "1";
+        }else if(ke.getKeyCode() == KeyEvent.VK_2){
+            inp += "2";
+        }else if(ke.getKeyCode() == KeyEvent.VK_3){
+            inp += "3";
+        }else if(ke.getKeyCode() == KeyEvent.VK_4){
+            inp += "4";
+        }else if(ke.getKeyCode() == KeyEvent.VK_5){
+            inp += "5";
+        }else if(ke.getKeyCode() == KeyEvent.VK_6){
+            inp += "6";
+        }else if(ke.getKeyCode() == KeyEvent.VK_7){
+            inp += "7";
+        }else if(ke.getKeyCode() == KeyEvent.VK_8){
+            inp += "8";
+        }else if(ke.getKeyCode() == KeyEvent.VK_9){
+            inp += "9";
+        }
+        }
+        if(!cap){if(ke.getKeyCode() == KeyEvent.VK_SPACE){
+            inp += " ";
+        }if(ke.getKeyCode() == KeyEvent.VK_PERIOD){
+            inp += ".";
+        }if(ke.getKeyCode() == KeyEvent.VK_COMMA){
+            inp += ",";
+        }if(ke.getKeyCode() == KeyEvent.VK_SLASH){
+            inp += "/";
+        }if(ke.getKeyCode() == KeyEvent.VK_BACK_SLASH){
+            inp += "\\";
+        }if(ke.getKeyCode() == KeyEvent.VK_QUOTE){
+            inp += "\'";
+        }if(ke.getKeyCode() == KeyEvent.VK_COLON){
+            inp += ";";
+        }}if(cap){
+        if(ke.getKeyCode() == KeyEvent.VK_SPACE){
+            inp += " ";
+        }if(ke.getKeyCode() == KeyEvent.VK_PERIOD){
+            inp += ">";
+        }if(ke.getKeyCode() == KeyEvent.VK_COMMA){
+            inp += "<";
+        }if(ke.getKeyCode() == KeyEvent.VK_SLASH){
+            inp += "?";
+        }if(ke.getKeyCode() == KeyEvent.VK_BACK_SLASH){
+            inp += "|";
+        }if(ke.getKeyCode() == KeyEvent.VK_QUOTE){
+            inp += "\"";
+        }if(ke.getKeyCode() == KeyEvent.VK_COLON){
+            inp += ":";
+        }
+        }
+        if(ke.getKeyCode() == KeyEvent.VK_BACK_SPACE){
+            String inp1 = inp;
+            inp = "";
+            if(inp1.length()>0){
+            for(int i = 0; i<inp1.length()-1;i++){
+                inp += inp1.toCharArray()[i];
+            }
+            }else{
+                inp = inp1;
+            }
+            inp1 = "";
+        }
+        if (ke.getKeyCode() == KeyEvent.VK_ENTER){
             if(inp.equalsIgnoreCase("hello")){
-                System.out.print("Here");
                 response = "How are you";
                 inp = "";
             }else if(inp.equalsIgnoreCase("good")){
@@ -172,7 +300,7 @@ class Key implements KeyListener{
                 response = "That is too bad";
                 inp = "";
             }else{
-                response = "I am not programmed to handle that.";
+                response = "Does not compute";
                 inp = "";
             }
         }
